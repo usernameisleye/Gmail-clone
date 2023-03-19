@@ -1,2 +1,3 @@
 # IGNORE NODE_MODULES FILES IN ALL FOLDERS
 */node_modules
+*/.env
