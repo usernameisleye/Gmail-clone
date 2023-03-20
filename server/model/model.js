@@ -10,6 +10,10 @@ const mailSchema = new Schema({
         type: String,
         required: true
     },
+    sender:{
+        type: String,
+        required: true
+    },
     subject:{
         type: String,
         required: true

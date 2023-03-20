@@ -8,14 +8,14 @@ router.get("/", mailController.mail_get_all);
 // Create a new mail
 router.post("/", mailController.mail_post);
 
-// Get a specific mail
+// Get all starred mail
+router.get("/starred", mailController.mail_starred);
+
+// Get a mail
 router.get("/:id", mailController.mail_get);
 
 // Delete a mail
 router.delete("/:id", mailController.mail_delete);
-
-// Get all starred mail
-router.get("/starred", mailController.mail_starred);
 
 // Update "starred" mail to true
 router.put("/:id/star", mailController.mail_star)
