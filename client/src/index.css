@@ -2,6 +2,9 @@
   font-family: Hanken Grotesk;
   src: url(../fonts/HankenGrotesk-VariableFont_wght.ttf);
 }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 :root{
   --primary-rgb-100: 85,104,138; /*Base home background color*/
   --primary-rgb-200: 255,255,255; /*Base mail background color*/
@@ -59,38 +62,7 @@
 }
 img, i{
   display: block;
-  max-width: 2rem;
   cursor: pointer;
-  font-size: var(--fs-600);
-  color: var(--neutral-800);
-}
-body{
-  font-family: var(--font-family);
-  background-color: rgb(var(--primary-rgb-100));
-}
-nav{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-}
-.flex-group{
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-.logo{
-  font-weight: var(--bold);
-  font-size: var(--fs-500);
-  color: var(--neutral-800);
-}
-.input-div{
-  width: 30%;
-}
-.input-box{
-  border: 0;
-  outline: 0;
-  width: 100%;
-  padding: .5rem;
-  background-color: rgb(var(--neutral-rgb-200), .7);
+  max-width: 2rem;
+  /* font-size: 1.2rem; */
 }

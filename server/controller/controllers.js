@@ -3,7 +3,7 @@ const Mail = require("../model/model") //Importing the Mail model
 const mail_get_all = (req, res) => {
     Mail.find().sort({ createdAt: -1 })
     .then((data) =>{
-       res.send("All files")
+      res.send(data);
     })
     .catch((err) => {console.log(err);})
 };
@@ -19,19 +19,19 @@ const mail_post = (req, res) => {
 };
 
 const mail_get = (req, res) => {
-    const { _id } = req.params;
+    const { id } = req.params;
 
-    Mail.findById(_id)
+    Mail.findById(id)
      .then((data) =>{
-        res.send("Page File")
+        res.send(data);
      })
      .catch((err) =>{console.log(err);})
 };
 
 const mail_delete = (req, res) => {
-    const { _id } = req.params;
+    const { id } = req.params;
 
-    Mail.findByIdAndDelete(_id)
+    Mail.findByIdAndDelete(id)
      .then((data) => {
         res.status(200).json({ redirect: "/" });
      })
@@ -41,15 +41,15 @@ const mail_delete = (req, res) => {
 const mail_starred = (req, res) => {
     Mail.find({ starred: true })
     .then((data) =>{
-       res.send("Starred")
+       res.send("Starred");
     })
     .catch((err) => {console.log(err, "None");})
 };
 
 const mail_star = (req, res) => {
-    const { _id } = req.params;
+    const { id } = req.params;
 
-    Mail.updateOne(_id, { $set: { starred: true } })
+    Mail.updateOne(id, { $set: { starred: true } })
      .then((data) => {
         res.status(204).json({ isStarred: "starred" });
      })
@@ -57,9 +57,9 @@ const mail_star = (req, res) => {
 };
 
 const mail_unstar = (req, res) => {
-    const { _id } = req.params;
+    const { id } = req.params;
 
-    Mail.updateOne(_id, { $set: { starred: false } })
+    Mail.updateOne(id, { $set: { starred: false } })
      .then((data) => {
         res.status(204).json({ isStarred: "unstarred" });
      })
