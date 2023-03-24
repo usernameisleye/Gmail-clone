@@ -5,52 +5,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-:root{
-  --primary-rgb-100: 85,104,138; /*Base home background color*/
-  --primary-rgb-200: 255,255,255; /*Base mail background color*/
-  --primary-rgb-300: 42,42,42; /*Base text color*/
-  --primary-rgb-400: 11,87,208; /*Tab blue*/
-
-  --neutral-rgb-100: 221,225,232; /*Unread white background*/
-  --neutral-rgb-200: 201,205,211; /*Read white background*/
-
-  --neutral-rgb-300: 148,151,156; /*Unread black text color*/
-  --neutral-rgb-400: 136,138,143; /*Read black text color*/
-  --neutral-rgb-500: 201,205,211; /*Unread/read black text "body" color*/
-
-  --neutral-rgb-600: 244,244,246; /*Unread white text color*/
-  --neutral-rgb-700: 222,224,228; /*Read white text color*/ 
-  --neutral-rgb-800: 233,235,240; /*Font Awesome icons*/ 
-
-  --primary-100: rgb(var(--primary-rgb-100));
-  --primary-200: rgb(var(--primary-rgb-200));
-  --primary-300: rgb(var(--primary-rgb-300));
-  --primary-400: rgb(var(--primary-rgb-400));
-
-  --neutral-100: rgb(var(--neutral-rgb-100));
-  --neutral-200: rgb(var(--neutral-rgb-200));
-
-  --neutral-300: rgb(var(--neutral-rgb-300));
-  --neutral-400: rgb(var(--neutral-rgb-400));
-  --neutral-500: rgb(var(--neutral-rgb-500));
-
-  --neutral-600: rgb(var(--neutral-rgb-600));
-  --neutral-700: rgb(var(--neutral-rgb-700)); 
-  --neutral-800: rgb(var(--neutral-rgb-800)); 
-  
-  --font-family: "Hanken Grotesk";
-
-  --bold: 500;
-  --semi-bold: 700;
-  --extra-bold: 800;
-
-  --fs-400: 1.125rem;
-  --fs-500: 1.25rem;
-  --fs-600: 1.5rem;
-  --fs-700: 1.75rem;
-  --fs-800: 2rem;
-  --fs-900: 5rem;
-}
 *, 
 *::after,
 *::before{
@@ -60,9 +14,10 @@
   margin: 0;
   font: inherit;
 }
-img, i{
+i{
   display: block;
   cursor: pointer;
-  max-width: 2rem;
-  /* font-size: 1.2rem; */
+}
+aside img{
+  max-width: 1.5rem;
 }

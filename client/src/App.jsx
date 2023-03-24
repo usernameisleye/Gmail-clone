@@ -3,7 +3,7 @@ import Main from "./components/Main";
 
 function App() {
   return (
-    <div className="App bg-Home-Blue h-screen font-Hanken-Grotesk">
+    <div className="App bg-Home-Bg h-screen font-Hanken-Grotesk">
       <Nav />
       <Main />
     </div>
