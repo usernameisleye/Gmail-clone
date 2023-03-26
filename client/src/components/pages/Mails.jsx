@@ -1,5 +1,5 @@
-import { useEffect } from "react";
 import Mail from "./Mail";
+import MailsHeader from "./utils/MailsHeader";
 
 const Mails = () => {
     const sections = [
@@ -11,34 +11,9 @@ const Mails = () => {
     // const checkboxes = document.querySelectorAll("input[type = 'checkbox']");
 
     return ( 
-        <div className="bg-White w-[calc(67%+10rem)] m-4 rounded-xl overflow-x-hidden">
+        <div className="bg-White w-[calc(67%+10rem)] mx-4 rounded-xl overflow-x-hidden">
             {/* Heading on Mails section */}
-            <div className="bg-White text-FA-Dark flex items-center justify-between gap-6 p-4">
-                <div className="flex items-center gap-4">
-                    <div className="flex items-center gap-2">
-                        <input type="checkbox" className="h-4 w-4" />
-                        <i className="fa-solid fa-caret-down"></i>
-                    </div>
-
-                    <i className="fa-solid fa-rotate-right"></i>
-                    <i className="fa-solid fa-ellipsis-vertical"></i>
-                </div>
-
-
-                <div className="flex items-center gap-6">
-                    <span className="">1-3 of 3</span>
-
-                    <div className="flex items-center gap-4">
-                        <i className="fa-solid fa-angle-left"></i>
-                        <i className="fa-solid fa-angle-right"></i>
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                        <i className="fa-sharp fa-solid fa-keyboard"></i>
-                        <i className="fa-solid fa-caret-down"></i>
-                    </div>
-                </div>
-            </div>
+            <MailsHeader />
 
             {/* Sub heading of Mails section */}
             <section className="text-md h-[calc(24rem+5rem)] overflow-hidden overscroll-y-contain overflow-y-scroll">

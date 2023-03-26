@@ -9,18 +9,18 @@ const Nav = () => {
             </div>
 
             {/* Input section */}
-            <div className="w-7/12 ml-20 relative text-Base-Text">
-                <i className="fa-solid fa-magnifying-glass absolute top-1/4 left-4 text-base"></i>
-                <input className=" text-base w-full px-12 py-3 rounded-md outline-0 border-0 bg-Input-Bg  placeholder:text-Placeholder-Text focus:bg-White focus:placeholder:text-Base-Text focus:shadow-md transition" type="text" placeholder="Search mail" />
-                <i className={`fa-solid fa-sliders absolute top-1/4 right-4`}></i>
+            <div className="w-[calc(50%+4rem)] ml-20 relative text-Base-Text">
+                <i className="fa-solid fa-magnifying-glass absolute top-1/2 -translate-y-1/2 left-4 text-base"></i>
+                <input className=" text-base w-full h-12 px-14  rounded-md outline-0 border-0 bg-Input-Bg  placeholder:text-Placeholder-Text placeholder:text-opacity-90 focus:bg-White focus:placeholder:text-Base-Text focus:shadow-md transition" type="text" placeholder="Search mail" />
+                <i className="fa-solid fa-sliders absolute top-1/2 -translate-y-1/2 right-4"></i>
             </div>
 
             {/* Help, setting and profile section */}
-            <div className="flex items-center gap-2 ml-auto">
-                <i className="fa-regular fa-circle-question flex items-center justify-center p-5 h-4 hover:bg-FA-Hover rounded-full"></i>
-                <i className="fa-sharp fa-solid fa-gear flex items-center justify-center p-5 h-4 hover:bg-FA-Hover rounded-full"></i>
-                <i className="fa-solid fa-grid-4"></i>
-                <img className="w-8 mx-4" src="/assets/user-img.png" alt="" />
+            <div className="flex items-center gap-4 ml-auto">
+                <i className="fa-regular fa-circle-question "></i>
+                <i className="fa-solid fa-gear"></i>
+                <i className="fa-solid fa-list"></i>
+                <img className="w-8" src="/assets/user-img.png" alt="" />
             </div>
         </nav>
     );
