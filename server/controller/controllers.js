@@ -3,9 +3,11 @@ const Mail = require("../model/model") //Importing the Mail model
 const mail_get_all = (req, res) => {
     Mail.find().sort({ createdAt: -1 })
     .then((data) =>{
-      res.send(data);
+      res.status(200).json(data);
     })
-    .catch((err) => {console.log(err);})
+    .catch((err) => {
+      res.status(400).json({ error: err.message })
+    })
 };
 
 const mail_post = (req, res) => {
@@ -13,9 +15,11 @@ const mail_post = (req, res) => {
 
     mail.save()
      .then((data) =>{
-        res.status(301).json({ redirect: "/mails" });
+        res.status(301).json(data);
      })
-     .catch((err) => {console.log(err);})
+     .catch((err) => {
+      res.status(400).json({ error: err.message })
+    })
 };
 
 const mail_get = (req, res) => {
@@ -23,16 +27,18 @@ const mail_get = (req, res) => {
 
     Mail.findById(id)
      .then((data) =>{
-        res.send(data);
+      res.status(200).json(data);
      })
-     .catch((err) =>{console.log(err);})
+     .catch((err) => {
+      res.status(400).json({ error: err.message })
+    })
 };
 
 const mail_delete = (req, res) => {
     const { id } = req.params;
 
     Mail.findByIdAndDelete(id)
-     .then((data) => {
+     .then(() => {
         res.status(200).json({ redirect: "/" });
      })
      .catch((err) => {console.log(err);})
@@ -40,30 +46,36 @@ const mail_delete = (req, res) => {
 
 const mail_starred = (req, res) => {
     Mail.find({ starred: true })
-    .then((data) =>{
+    .then(() =>{
        res.send("Starred");
     })
-    .catch((err) => {console.log(err, "None");})
+    .catch((err) => {
+      res.status(400).json({ error: err.message })
+    })
 };
 
 const mail_star = (req, res) => {
     const { id } = req.params;
 
     Mail.updateOne(id, { $set: { starred: true } })
-     .then((data) => {
+     .then(() => {
         res.status(204).json({ isStarred: "starred" });
      })
-     .catch((err) =>{console.log(err);})
+     .catch((err) => {
+      res.status(400).json({ error: err.message })
+    })
 };
 
 const mail_unstar = (req, res) => {
     const { id } = req.params;
 
     Mail.updateOne(id, { $set: { starred: false } })
-     .then((data) => {
+     .then(() => {
         res.status(204).json({ isStarred: "unstarred" });
      })
-     .catch((err) =>{console.log(err);})
+     .catch((err) => {
+      res.status(400).json({ error: err.message })
+    })
 };
 
 module.exports = {

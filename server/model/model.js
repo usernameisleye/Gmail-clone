@@ -24,7 +24,7 @@ const mailSchema = new Schema({
     },
     starred:{
         type: Boolean,
-        required: true
+        required: false
     },
 }, { timestamps: true });
 

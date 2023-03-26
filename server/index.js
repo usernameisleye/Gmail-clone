@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const nodeMailer = require("nodemailer");
@@ -7,15 +8,11 @@ const router = require("./routes/routers");
 // INITIALIZING EXPRESS
 const app = express();
 
-const PORT = 5050;
-
-const dbUrl = "mongodb+srv://adeleyeadesida:swiftmail@swiftmail.6vgh7ip.mongodb.net/swiftmail?retryWrites=true&w=majority";
-
 // CONNECTING DATABASE
-mongoose.connect(dbUrl, { useNewUrlParser:true, useUnifiedTopology: true })
- .then((data) =>{
-    app.listen(PORT, () =>{
-        console.log(`Server is running on port ${PORT}`);
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser:true, useUnifiedTopology: true })
+ .then(() =>{
+    app.listen(process.env.DB_PORT, () =>{
+        console.log(`Server is running on port ${process.env.DB_PORT}`);
     })
  })
  .catch((err) =>{
