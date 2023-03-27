@@ -1,8 +1,8 @@
 require("dotenv").config();
+const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
 const nodeMailer = require("nodemailer");
-const bodyParser = require("body-parser");
 const router = require("./routes/routers");
 
 // INITIALIZING EXPRESS
@@ -22,14 +22,8 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser:true, useUnifiedTopolo
  });
 
 // MIDDLEWARES
+app.use(cors());
 app.use(express.json());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
-
-// HOME REDIRECT
-app.get("/", (req, res) =>{
-    res.redirect("/mails")
-});
 
 // NODEMAILER
 app.post("/mails/sent", (req, res) =>{
@@ -63,7 +57,7 @@ app.post("/mails/sent", (req, res) =>{
 })
 
 // ALL ROUTES
-app.use("/mails", router);
+app.use("/api/mails", router);
 
 // 404 ROUTES
 app.get("*", (req, res) => {

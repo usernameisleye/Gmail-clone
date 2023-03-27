@@ -1,6 +1,6 @@
 const Mail = () => {
     return ( 
-        <div className="group relative flex items-center gap-4 h-12 p-4 cursor-pointer border-b border-solid border-FA-Hover hover:shadow-md">
+        <div className="group relative flex items-center gap-4 h-10 p-4 cursor-pointer border-b border-solid border-FA-Hover hover:shadow-md">
             <div className="flex items-center gap-2">
                 {/* Mail heading and buttons */}
                 <div className="flex w-1/3">
@@ -13,8 +13,8 @@ const Mail = () => {
             </div>
 
             {/* Mail heading and preview */}
-            <div className="flex w-3/4">
-                <span className="font-bold">🦎 Gecko Ramblings: Be water, fellow Geckos!💧</span>
+            <div className="flex flex-col md:flex-row w-3/4 text-md">
+                <span className="font-semibold">🦎 Gecko Ramblings: Be water, fellow Geckos!💧</span>
                 <span className="w-2/4 h-fit overflow-hidden text-ellipsis whitespace-nowrap">🦎 Gecko Ramblings Exclusively for Premium+ subscribers, we bring you the latest alpha and the juiciest farms, right to your inbox!</span>
             </div>
 

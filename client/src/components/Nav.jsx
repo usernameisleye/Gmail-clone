@@ -4,7 +4,7 @@ const Nav = () => {
         <nav className="flex py-2 px-8 h-16 text-FA-Dark text-xl">
             {/* Logo section */}
             <div className="flex items-center gap-4">
-                <i className="fa-sharp fa-solid fa-bars text-Black"></i>
+                <i className="fa-sharp fa-solid fa-bars text-Black p-2 rounded-full hover:bg-FA-Hover"></i>
                 <img className="w-28 object-cover" src="/assets/logo.png" alt="" />
             </div>
 
