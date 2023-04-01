@@ -18,7 +18,9 @@ module.exports = {
       "Base-Text": "rgb(42,42,42)",
       "Tab-Blue": "rgb(11,87,208)",
       "Light-Blue": "rgb(194,231,255)",
+      "Bright-Blue": "rgb(242,246,252)",
       "Active-Blue": "rgb(211,227,253)",
+      "Dark-Blue": "rgb(11,87,208)",
       "Active-Text": "rgb(0,29,53)",
       "Black": "rgb(0,0,0)",
 

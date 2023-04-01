@@ -1,21 +1,21 @@
 const Mail = () => {
     return ( 
-        <div className="group relative flex items-center gap-4 h-10 p-4 cursor-pointer border-b border-solid border-FA-Hover hover:shadow-md">
-            <div className="flex items-center gap-2">
+        <div className="group relative flex items-center gap-4 h-fit p-2 cursor-pointer border-b border-solid border-FA-Hover hover:shadow-md">
+            <div className="flex items-center gap-2 w-fit">
                 {/* Mail heading and buttons */}
-                <div className="flex w-1/3">
+                <div className="flex">
                     <i className="fa-solid fa-grip-vertical cursor-grab mr-1 text-FA-Dark invisible group-hover:visible"></i>
                     <input type="checkbox" className="cursor-pointer" />
                 </div>
 
                 <i className="fa-sharp fa-regular fa-star text-FA-Dark"></i>
-                <span className="font-bold">CoinGecko</span>
+                <span className="font-bold">Premier League</span>
             </div>
 
             {/* Mail heading and preview */}
-            <div className="flex flex-col md:flex-row w-3/4 text-md">
-                <span className="font-semibold">🦎 Gecko Ramblings: Be water, fellow Geckos!💧</span>
-                <span className="w-2/4 h-fit overflow-hidden text-ellipsis whitespace-nowrap">🦎 Gecko Ramblings Exclusively for Premium+ subscribers, we bring you the latest alpha and the juiciest farms, right to your inbox!</span>
+            <div className="flex flex-col md:flex-row w-3/5 text-md">
+                <span className="font-semibold basis-full">PL Hall of Fame shortlist announced at PL</span>
+                <span className=" basis-full h-fit overflow-hidden text-ellipsis whitespace-nowrap">Sir Alex Ferguson and Arsène Wenger are the first two Hall of Fame inductees of 2023, with a public vote now open to decide another three PL icons to join them from a shortlist of 15 former players.</span>
             </div>
 
             {/* Extra content on hover */}
@@ -26,7 +26,7 @@ const Mail = () => {
                 <i className="fa-regular fa-clock"></i>
             </div>
             {/* Date */}
-            <span className="font-bold ml-auto">Mar 22</span>        
+            <span className="font-bold ml-auto content-start">Mar 22</span>        
         </div>
      );
 }

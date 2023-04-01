@@ -1,5 +1,5 @@
-import Mail from "./Mail";
-import MailsHeader from "./utils/MailsHeader";
+import Mail from "./pages/Mail";
+import MailsHeader from "./utils/MailsHeader"
 
 const Mails = () => {
     const sections = [

@@ -1,12 +1,28 @@
-import Nav from "./components/Nav";
-import Main from "./components/Main";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Mails from "./components/Mails";
+import Menu from "./components/Menu";
+import Panel from "./components/Panel";
+import Compose from "./components/pages/Compose";
 
 function App() {
   return (
-    <div className="App bg-Home-Bg h-screen font-Hanken-Grotesk">
-      <Nav />
-      <Main />
-    </div>
+    <BrowserRouter>
+      <div className="App bg-Home-Bg h-screen font-Hanken-Grotesk">
+        <Header />
+        <div className="flex">
+          <Menu />
+          <Routes>
+            <Route
+             path="/"
+             element={<Mails />}
+            />
+          </Routes>
+          <Compose />
+          <Panel />
+        </div>
+      </div>
+    </BrowserRouter>
   )
 }
 

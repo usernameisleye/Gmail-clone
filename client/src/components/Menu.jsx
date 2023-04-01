@@ -21,7 +21,7 @@ const Menu = () => {
     return ( 
         <aside className="flex flex-col gap-2 text-Mail-White w-1/6 text-md">
             {/* Compose button */}
-            <div className="text-Base-Text bg-Light-Blue text-md font-medium py-4 px-5 m-2 w-fit rounded-2xl cursor-pointer hover:shadow-xl transition">
+            <div className="compose text-Base-Text bg-Light-Blue text-md font-medium py-4 px-5 m-2 w-fit rounded-2xl cursor-pointer hover:shadow-xl transition">
                 <i className="fa-solid fa-pen mr-4"></i>
                 <span className="">Compose</span>
             </div>

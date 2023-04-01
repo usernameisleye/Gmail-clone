@@ -15,7 +15,7 @@ const mailsHeader = () => {
 
     return ( 
         <div className="relative bg-White text-FA-Dark flex items-center justify-between gap-6 p-4">
-            <div className="flex items-center gap-8">
+            <div className="flex items-center gap-6">
                 <div className="flex items-center gap-2">
                     <input type="checkbox" className="h-4 w-4 cursor-pointer" />
                     {/* Open and close "show" options */}
@@ -54,7 +54,7 @@ const mailsHeader = () => {
                         ].map(([title, className]) => (
                             <p key={className} className="flex items-center justify-center gap-2 mt-2 hover:bg-FA-Hover cursor-pointer"><i key={title} className={`${className}`}></i> { title } </p>
                         ))}
-                        <p className="my-2 py-2 cursor-pointer border-t border-solid border-FA-Hover">Input Tools Settings</p>
+                        <p className="my-2 pt-2 cursor-pointer border-t border-solid border-FA-Hover">Input Tools Settings</p>
                     </div>
                 </div>
             </div>
