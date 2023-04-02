@@ -1,8 +1,15 @@
 import { useState } from "react";
 
-const Nav = () => {
+const Header = () => {
     const hover = "p-2 rounded-full hover:bg-FA-Hover";
-    const [show, setShow] = useState(false)
+    const [show, setShow] = useState(false);
+
+    // Closing dropdown when anywhere on the viewport is clicked
+    document.addEventListener("click", e =>{
+        if(e.target.tagName !== "I"){
+            setShow(false);
+        }
+    });
 
     return ( 
         <nav className="flex py-2 px-8 h-16 text-FA-Dark text-xl">
@@ -37,4 +44,4 @@ const Nav = () => {
     );
 }
  
-export default Nav;
+export default Header;

@@ -9,13 +9,13 @@ const Mail = () => {
                 </div>
 
                 <i className="fa-sharp fa-regular fa-star text-FA-Dark"></i>
-                <span className="font-bold">Premier League</span>
+                <span className="font-medium">Premier League</span>
             </div>
 
             {/* Mail heading and preview */}
-            <div className="flex flex-col md:flex-row w-3/5 text-md">
-                <span className="font-semibold basis-full">PL Hall of Fame shortlist announced at PL</span>
-                <span className=" basis-full h-fit overflow-hidden text-ellipsis whitespace-nowrap">Sir Alex Ferguson and Arsène Wenger are the first two Hall of Fame inductees of 2023, with a public vote now open to decide another three PL icons to join them from a shortlist of 15 former players.</span>
+            <div className="flex flex-col md:flex-row w-3/5 ">
+                <span className="font-medium basis-full">PL Hall of Fame shortlist announced PL</span>
+                <span className="basis-full h-fit overflow-hidden text-ellipsis whitespace-nowrap">Sir Alex Ferguson and Arsène Wenger are the first two Hall of Fame inductees of 2023, with a public vote now open to decide another three PL icons to join them from a shortlist of 15 former players.</span>
             </div>
 
             {/* Extra content on hover */}

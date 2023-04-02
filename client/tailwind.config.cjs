@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily:{
-      "Hanken-Grotesk": ['"Hanken Grotesk"', 'sans-serif']
+      "Hanken-Grotesk": ['"Roboto"', 'Arial', 'Helvetica', 'sans-serif']
     },
     colors: {
       // Primary

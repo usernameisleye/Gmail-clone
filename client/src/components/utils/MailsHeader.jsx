@@ -52,7 +52,7 @@ const mailsHeader = () => {
                             ["English", "fa-solid fa-e"],
                             ["English", "fa-solid fa-pen"],
                         ].map(([title, className]) => (
-                            <p key={className} className="flex items-center justify-center gap-2 mt-2 hover:bg-FA-Hover cursor-pointer"><i key={title} className={`${className}`}></i> { title } </p>
+                            <p key={className} className="flex items-center justify-start px-8 gap-2 mt-2 hover:bg-FA-Hover cursor-pointer"><i key={title} className={`${className}`}></i> { title } </p>
                         ))}
                         <p className="my-2 pt-2 cursor-pointer border-t border-solid border-FA-Hover">Input Tools Settings</p>
                     </div>

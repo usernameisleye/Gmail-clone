@@ -21,15 +21,15 @@ const Menu = () => {
     return ( 
         <aside className="flex flex-col gap-2 text-Mail-White w-1/6 text-md">
             {/* Compose button */}
-            <div className="compose text-Base-Text bg-Light-Blue text-md font-medium py-4 px-5 m-2 w-fit rounded-2xl cursor-pointer hover:shadow-xl transition">
+            <button  className="compose text-Base-Text bg-Light-Blue text-md font-medium py-4 px-5 m-2 w-fit rounded-2xl cursor-pointer hover:shadow-xl transition">
                 <i className="fa-solid fa-pen mr-4"></i>
                 <span className="">Compose</span>
-            </div>
+            </button>
 
             {/* Rendering menu section from "menu" array */}
             <div className="flex flex-col gap-1">
                 {menu.map(([id,title, className, active, num]) =>(
-                    <div key={id} className={`flex items-center gap-4 text-sm font-semibold py-1 pr-4 pl-8 cursor-pointer ${active ? active : "text-Light-Text-Black font-normal"} ${active ? "" : "hover:bg-FA-Hover"} rounded-tr-full rounded-br-full`} onClick={e => changeActive(e.target)}>
+                    <div key={id} className={`flex items-center gap-4 text-sm py-1 pr-4 pl-8 cursor-pointer ${active ? active : "text-Light-Text-Black"} ${active ? "" : "hover:bg-FA-Hover"} rounded-tr-full rounded-br-full`} onClick={e => changeActive(e.target)}>
                         <i className={`${className}`}></i>
                         <span>{title}</span>
                         <span className="ml-auto">{num}</span>
