@@ -1,7 +1,7 @@
 const Panel = () => {
     return ( 
         <aside className="h-[calc(24rem+5rem)] mr-2">
-            <div className="flex flex-col justify-evenly h-3/5 cursor-pointer border-b border-solid border-FA-Hover">
+            <div className="flex flex-col justify-evenly h-1/2 cursor-pointer border-b border-solid border-FA-Hover">
                 <img src="/assets/calendar.png" className="" alt="Calender image" />
                 <img src="/assets/keep.png" className="" alt="Keep image" />
                 <img src="/assets/tasks.png" className="" alt="Tasks image" />

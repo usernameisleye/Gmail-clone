@@ -15,9 +15,9 @@ const Mails = () => {
 
             {/* Sub heading of Mails section */}
             <section className="text-md h-[calc(24rem+5rem)] overflow-hidden overscroll-y-contain overflow-y-scroll">
-                <div className="bg-White text-FA-Dark flex text-md border-b border-solid border-FA-Hover">
+                <div className="bg-White text-FA-Dark flex gap-2 text-md border-b border-solid border-FA-Hover">
                     { sections.map(section => (
-                        <div key={section.id} className={`sub-heading flex items-center gap-2 p-4 w-1/6 cursor-pointer ${section.active ? section.active : ""}`}>
+                        <div key={section.id} className={`sub-heading flex items-center gap-2 py-3 px-4 w-[calc(20%+2rem)] cursor-pointer ${section.active ? section.active : ""} hover:bg-FA-Hover`}>
                             <i className={`${section.className}`}></i>
                             <span className="">{section.title}</span>
                         </div>

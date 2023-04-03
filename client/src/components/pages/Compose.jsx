@@ -10,7 +10,7 @@ const Compose = () => {
     });
 
     return ( 
-        <form className={`${ open ? "" : "hidden" } bg-White fixed right-20 bottom-0 flex flex-col w-[calc(25rem+5rem)] overflow-hidden rounded-md shadow-lg`}>
+        <form className={`${ open ? "" : "hidden" } bg-White fixed right-20 bottom-0 flex flex-col w-[calc(25rem+5rem)] overflow-hidden rounded-md shadow-xl`}>
             {/* Header section of compose box */}
             <header className="flex justify-between bg-Bright-Blue p-2">
                 <span className="font-semibold">New Message</span>

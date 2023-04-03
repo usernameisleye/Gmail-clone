@@ -12,7 +12,7 @@ const Header = () => {
     });
 
     return ( 
-        <nav className="flex py-2 px-8 h-16 text-FA-Dark text-xl">
+        <header className="flex py-2 px-8 h-16 text-FA-Dark text-xl">
             {/* Logo section */}
             <div className="flex justify-center gap-4">
                 <img src="assets/icon-hamburger.svg" className="w-6 my-auto cursor-pointer" alt="" />
@@ -40,7 +40,7 @@ const Header = () => {
                     <p className="my-2 pt-2 cursor-pointer border-t border-solid border-FA-Hover">Send Feedback to Google</p>
                 </div>
             </div>
-        </nav>
+        </header>
     );
 }
  

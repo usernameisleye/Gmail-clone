@@ -19,7 +19,7 @@ const Mail = () => {
             </div>
 
             {/* Extra content on hover */}
-            <div className="bg-White text-FA-Dark absolute right-0 top-2/5 flex justify-evenly h-8 w-1/5 invisible group-hover:visible">
+            <div className="bg-White text-FA-Dark absolute right-0 top-2/5 flex justify-evenly w-1/5 invisible group-hover:visible">
                 <i className="fa-regular fa-folder"></i>
                 <i className="fa-regular fa-trash-can"></i>
                 <i className="fa-regular fa-envelope-open"></i>
