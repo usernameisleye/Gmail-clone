@@ -15,7 +15,7 @@ const Header = () => {
         <header className="flex py-2 px-8 h-16 text-FA-Dark text-xl">
             {/* Logo section */}
             <div className="flex justify-center gap-4">
-                <img src="assets/icon-hamburger.svg" className="w-6 my-auto cursor-pointer" alt="" />
+                <img src="./assets/icon-hamburger" className="w-6 my-auto cursor-pointer" alt="" />
                 <img className="w-22 self-center" src="/assets/logo.png" alt="" />
             </div>
 
@@ -31,7 +31,7 @@ const Header = () => {
                 <i className={`fa-regular fa-circle-question ${hover}`} onClick={() => setShow(!show)}></i>
                 <i className={`fa-solid fa-gear ${hover}`}></i>
                 <i className={`fa-solid fa-list ${hover}`}></i>
-                <img className="w-8" src="/assets/user-img.png" alt="" />
+                <img className="w-8 rounded-full" src="/assets/user.png" alt="" />
 
                 <div className={`absolute top-10 right-3/4 bg-White w-52 py-2 text-center text-base z-10 shadow-xl ${show ? "" : "hidden"}`}>
                     {["Help", "Training", "Updates"].map((title) =>(

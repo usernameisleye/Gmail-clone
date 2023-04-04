@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Mail = () => {
     return ( 
         <div className="group relative flex items-center gap-4 h-fit p-2 cursor-pointer border-b border-solid border-FA-Hover hover:shadow-md">
@@ -13,9 +15,9 @@ const Mail = () => {
             </div>
 
             {/* Mail heading and preview */}
-            <div className="flex flex-col md:flex-row w-3/5 ">
-                <span className="font-medium basis-full">PL Hall of Fame shortlist announced PL</span>
-                <span className="basis-full h-fit overflow-hidden text-ellipsis whitespace-nowrap">Sir Alex Ferguson and Arsène Wenger are the first two Hall of Fame inductees of 2023, with a public vote now open to decide another three PL icons to join them from a shortlist of 15 former players.</span>
+            <div className="flex flex-col md:flex-row w-3/5">
+                <span className="font-medium w-full">PL Hall of Fame shortlist announced PL</span>
+                <span className="w-full h-fit overflow-hidden text-ellipsis whitespace-nowrap">Sir Alex Ferguson and Arsène Wenger are the first two Hall of Fame inductees of 2023, with a public vote now open to decide another three PL icons to join them from a shortlist of 15 former players.</span>
             </div>
 
             {/* Extra content on hover */}

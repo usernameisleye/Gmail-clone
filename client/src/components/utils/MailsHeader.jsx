@@ -1,15 +1,14 @@
 import { useState } from "react";
+import MailExtras from "./MailExtras";
 
 const mailsHeader = () => {
     // Show states for both dropdowns
     const [show, setShow] = useState(false);
-    const [show2, setShow2] = useState(false);
-    
+        
     // Closing dropdown when anywhere on the viewport is clicked
     document.addEventListener("click", e =>{
         if(e.target.tagName !== "I"){
             setShow(false);
-            setShow2(false);
         }
     });
 
@@ -33,31 +32,7 @@ const mailsHeader = () => {
             </div>
 
 
-            <div className="flex items-center gap-6">
-                <span className="">1-3 of 3</span>
-
-                <div className="flex items-center gap-8">
-                    <i className="fa-solid fa-angle-left"></i>
-                    <i className="fa-solid fa-angle-right"></i>
-                </div>
-
-                <div className="relative flex items-center gap-2 mr-6">
-                    <i className="fa-sharp fa-solid fa-keyboard"></i>
-                    <i className="fa-solid fa-caret-down" onClick={() => {setShow2(!show2)}}></i>
-
-                    <div className={`absolute top-6 right-0 bg-White w-52 py-2 text-center z-10 shadow-2xl  ${show2 ? "" : "hidden"}`}>
-                        {[
-                            ["English", "fa-solid fa-keyboard"],
-                            ["English Dvorak", "fa-sharp fa-solid fa-keyboard"],
-                            ["English", "fa-solid fa-e"],
-                            ["English", "fa-solid fa-pen"],
-                        ].map(([title, className]) => (
-                            <p key={className} className="flex items-center justify-start px-8 gap-2 mt-2 hover:bg-FA-Hover cursor-pointer"><i key={title} className={`${className}`}></i> { title } </p>
-                        ))}
-                        <p className="my-2 pt-2 cursor-pointer border-t border-solid border-FA-Hover">Input Tools Settings</p>
-                    </div>
-                </div>
-            </div>
+           <MailExtras />
         </div>
     );
 }
