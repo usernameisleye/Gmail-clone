@@ -15,7 +15,7 @@ const MailExtras = () => {
             <span className="text-sm">1-3 of 3</span>
 
             <div className="flex items-center gap-8">
-                <i className="fa-solid fa-angle-left"></i>
+                <i className="fa-solid fa-angle-left opacity-50"></i>
                 <i className="fa-solid fa-angle-right"></i>
             </div>
 

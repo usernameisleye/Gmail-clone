@@ -27,8 +27,8 @@ const Compose = () => {
                  type="text" 
                  placeholder="Recipients" 
                 />
-                <span className="absolute top-1/4 invisible group-focus-within:visible left-2">To</span>
-                <span className="absolute top-1/4 invisible group-focus-within:visible right-2">Cc Bcc</span>
+                <span className="absolute top-[20%] invisible group-focus-within:visible left-2">To</span>
+                <span className="absolute top-[20%] invisible group-focus-within:visible right-2">Cc Bcc</span>
             </div>
 
             <div className="">

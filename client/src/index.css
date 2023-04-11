@@ -79,8 +79,22 @@ aside img{
   }
 }
 /* Utility classes */
+
 .flex-items{
   display: flex;
   align-items: center;
   gap: 1.5rem;
+}
+/* Styling of scrollbar */
+::-webkit-scrollbar{
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track{
+  background: #FFFFFF;
+}
+::-webkit-scrollbar-thumb{
+  background: #CCCCCC;
+  border: .5px solid #B7B7B7;
+  border-right: 0;
 }

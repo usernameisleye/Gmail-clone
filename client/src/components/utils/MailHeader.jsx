@@ -5,7 +5,7 @@ const MailHeader = () => {
     const navigate = useNavigate();
 
     return ( 
-        <div className="flex justify-between p-4">
+        <nav className="flex justify-between p-4">
             <div className="flex gap-4">
                 <div className="">
                     <img src="/assets/arrow_back.png" alt="" onClick={() => navigate("/")} />
@@ -31,7 +31,7 @@ const MailHeader = () => {
             </div>
 
             <MailExtras />
-        </div>
+        </nav>
     );
 }
  

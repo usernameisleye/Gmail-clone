@@ -11,14 +11,19 @@ const Mail = () => {
                 </div>
 
                 <i className="fa-sharp fa-regular fa-star text-FA-Dark"></i>
-                <span className="font-medium">Premier League</span>
+                
+                <Link to="/mail/:id">
+                    <span className="font-medium">Premier League</span>
+                </Link>
             </div>
 
             {/* Mail heading and preview */}
-            <div className="flex flex-col md:flex-row w-3/5">
-                <span className="font-medium w-full">PL Hall of Fame shortlist announced PL</span>
-                <span className="w-full h-fit overflow-hidden text-ellipsis whitespace-nowrap">Sir Alex Ferguson and Arsène Wenger are the first two Hall of Fame inductees of 2023, with a public vote now open to decide another three PL icons to join them from a shortlist of 15 former players.</span>
-            </div>
+            <Link to="/mail/:id" className="w-3/5">
+                <div className="flex flex-col md:flex-row">
+                    <span className="font-medium w-full">PL Hall of Fame shortlist announced PL</span>
+                    <span className="w-full h-fit overflow-hidden text-ellipsis whitespace-nowrap">Sir Alex Ferguson and Arsène Wenger are the first two Hall of Fame inductees of 2023, with a public vote now open to decide another three PL icons to join them from a shortlist of 15 former players.</span>
+                </div>
+            </Link>
 
             {/* Extra content on hover */}
             <div className="bg-White text-FA-Dark absolute right-0 top-2/5 flex justify-evenly w-1/5 invisible group-hover:visible">
