@@ -10,7 +10,7 @@ const Mail = () => {
                     <input type="checkbox" className="cursor-pointer" />
                 </div>
 
-                <i className="fa-sharp fa-regular fa-star text-FA-Dark"></i>
+                <img src="/assets/star_baseline.png" alt="" className="" />
                 
                 <Link to="/mail/:id">
                     <span className="font-medium">Premier League</span>
@@ -27,10 +27,10 @@ const Mail = () => {
 
             {/* Extra content on hover */}
             <div className="bg-White text-FA-Dark absolute right-0 top-2/5 flex justify-evenly w-1/5 invisible group-hover:visible">
-                <i className="fa-regular fa-folder"></i>
-                <i className="fa-regular fa-trash-can"></i>
-                <i className="fa-regular fa-envelope-open"></i>
-                <i className="fa-regular fa-clock"></i>
+                <img src="/assets/archive.png" alt="" className="" />
+                <img src="/assets/delete.png" alt="" className="" />
+                <img src="/assets/mail.png" alt="" />
+                <img src="/assets/schedule.png" className="" alt="" />
             </div>
             {/* Date */}
             <span className="font-bold ml-auto content-start">Mar 22</span>        

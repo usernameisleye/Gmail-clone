@@ -5,7 +5,7 @@ const MailExtras = () => {
     
     // Closing dropdown when anywhere on the viewport is clicked
     document.addEventListener("click", e =>{
-        if(e.target.tagName !== "I"){
+        if(e.target.tagName !== "IMG"){
             setShow(false);
         }
     });
@@ -19,9 +19,9 @@ const MailExtras = () => {
                 <i className="fa-solid fa-angle-right"></i>
             </div>
 
-            <div className="relative flex items-center gap-2 mr-6">
+            <div className="relative flex items-center mr-6">
                 <i className="fa-sharp fa-solid fa-keyboard"></i>
-                <i className="fa-solid fa-caret-down" onClick={() => {setShow(!show)}}></i>
+                <img src="/assets/arrow_drop_down.png" alt="" className="" onClick={() => {setShow(!show)}}/>
 
                 <div className={`absolute top-6 right-0 bg-White w-52 py-2 text-center z-10 shadow-2xl  ${show ? "" : "hidden"}`}>
                     {[

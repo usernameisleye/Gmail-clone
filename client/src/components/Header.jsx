@@ -15,15 +15,15 @@ const Header = () => {
         <header className="flex py-2 px-8 h-16 text-FA-Dark text-xl">
             {/* Logo section */}
             <div className="flex justify-center gap-4">
-                <img src="./assets/icon-hamburger" className="w-6 my-auto cursor-pointer" alt="" />
+                <img src="./assets/icon-hamburger.svg" className="w-6 my-auto cursor-pointer" alt="" />
                 <img className="w-22 self-center" src="/assets/logo.png" alt="" />
             </div>
 
             {/* Input section */}
             <div className="w-[calc(50%+4rem)] ml-20 relative">
-                <i className="fa-solid fa-magnifying-glass absolute top-1/2 -translate-y-1/2 left-4 text-base"></i>
+                <img src="./assets/search.svg" alt="" className="absolute top-1/2 -translate-y-1/2 left-4 text-base" />
                 <input className=" text-base w-full h-12 px-14  rounded-md outline-0 border-0 bg-Input-Bg  placeholder:text-Placeholder-Text placeholder:text-opacity-90 focus:bg-White focus:placeholder:text-Base-Text focus:shadow-md transition" type="text" placeholder="Search mail" />
-                <i className="fa-solid fa-sliders absolute top-1/2 -translate-y-1/2 right-4"></i>
+                <img src="./assets/filter.svg" alt="" className="absolute top-1/2 -translate-y-1/2 right-4" />
             </div>
 
             {/* Help, setting and profile section */}

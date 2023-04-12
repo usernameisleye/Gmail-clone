@@ -30,8 +30,8 @@ const Menu = () => {
                 {menu.map(([id,title, className, active, num]) =>(
                     <div key={id} className={`flex items-center gap-4 text-sm py-1 pr-4 pl-8 cursor-pointer ${active ? active : "text-Light-Text-Black"} ${active ? "" : "hover:bg-FA-Hover"} rounded-tr-full rounded-br-full`} onClick={e => changeActive(e.target)}>
                         <img src={`/assets/${className}.png`}></img>
-                        <span>{title}</span>
-                        <span className="ml-auto">{num}</span>
+                        <span>{ title }</span>
+                        <span className="ml-auto">{ num }</span>
                     </div>
                 ))}
             </div>
@@ -45,11 +45,11 @@ const Menu = () => {
 
                 <div className="group flex items-center justify-between mt-4 py-1 pl-8 pr-4 cursor-pointer rounded-tr-full rounded-br-full hover:bg-FA-Hover">
                     <div className="flex items-center gap-2">
-                        <img src="/assets/label.png" className="w-5" alt="" />
+                        <img src="/assets/label.png" className="" alt="" />
                         <span>Backup</span>
                     </div>
 
-                    <i className="fa-solid fa-ellipsis-vertical invisible group-hover:visible"></i>
+                    <img src="/assets/more.png" className="invisible group-hover:visible" alt="" />
                 </div>
             </div>
         </aside>

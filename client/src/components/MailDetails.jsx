@@ -2,7 +2,7 @@ import MailHeader from "./utils/MailHeader";
 
 const MailDetails = () => {
     return ( 
-        <div className="bg-White w-[calc(67%+10rem)] mx-4 rounded-xl">
+        <div className="relative bg-White w-[calc(67%+10rem)] mx-4 rounded-xl">
             <MailHeader/>
 
             <article className="">
@@ -41,6 +41,19 @@ const MailDetails = () => {
                         </div>
                     </div>
                 </header>
+
+                <footer className="flex gap-4 py-[4rem] px-[5rem]">
+                    {
+                        [
+                            ["Reply", "reply"],
+                            ["Foward", "forward"]
+                        ].map(([title, path]) => (
+                            <button className="flex items-center gap-2 h-9 min-w-[104px] px-4 text-FA-Dark text-md border-FA-Dark border border-solid rounded-full hover:bg-FA-Hover">
+                                <img src={`/assets/${ path }.png`} alt="" />
+                                { title }
+                            </button>
+                        ))}
+                </footer>
             </article>
         </div>
      );
