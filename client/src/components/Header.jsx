@@ -1,22 +1,21 @@
 import { useState } from "react";
 
 const Header = () => {
-    const hover = "p-2 rounded-full hover:bg-FA-Hover";
     const [show, setShow] = useState(false);
 
     // Closing dropdown when anywhere on the viewport is clicked
     document.addEventListener("click", e =>{
-        if(e.target.tagName !== "I"){
+        if(e.target.tagName !== "IMG"){
             setShow(false);
         }
     });
 
     return ( 
-        <header className="flex py-2 px-8 h-16 text-FA-Dark text-xl">
+        <header className="flex py-2 px-6 h-16 text-FA-Dark text-xl">
             {/* Logo section */}
-            <div className="flex justify-center gap-4">
-                <img src="./assets/icon-hamburger.svg" className="w-6 my-auto cursor-pointer" alt="" />
-                <img className="w-22 self-center" src="/assets/logo.png" alt="" />
+            <div className="flex items-center gap-4">
+                <img src="./assets/icon-hamburger.svg" className="mb-1 cursor-pointer" alt="" />
+                <img className="w-22" src="/assets/logo.png" alt="" />
             </div>
 
             {/* Input section */}
@@ -27,11 +26,11 @@ const Header = () => {
             </div>
 
             {/* Help, setting and profile section */}
-            <div className="flex items-center gap-2 ml-auto relative">
-                <i className={`fa-regular fa-circle-question ${hover}`} onClick={() => setShow(!show)}></i>
-                <i className={`fa-solid fa-gear ${hover}`}></i>
-                <i className={`fa-solid fa-list ${hover}`}></i>
-                <img className="w-8 rounded-full" src="/assets/user.png" alt="" />
+            <div className="flex items-center gap-4 ml-auto relative">
+                <img src="./assets/help.svg" alt="" className="" onClick={() => setShow(!show)}/>
+                <img src="./assets/settings.svg" alt="" className="" />
+                <img src="./assets/google_apps.svg" alt="" />
+                <img className="w-8 h-8 rounded-full" src="/assets/user.png" alt="" />
 
                 <div className={`absolute top-10 right-3/4 bg-White w-52 py-2 text-center text-base z-10 shadow-xl ${show ? "" : "hidden"}`}>
                     {["Help", "Training", "Updates"].map((title) =>(

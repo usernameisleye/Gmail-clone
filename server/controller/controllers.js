@@ -1,13 +1,23 @@
 const Mail = require("../model/model") //Importing the Mail model
+const mongoose = require("mongoose");
 
-const mail_get_all = (req, res) => {
-    Mail.find().sort({ createdAt: -1 })
-    .then((data) =>{
-      res.status(200).json(data);
-    })
-    .catch((err) => {
+// const mail_get_all = (req, res) => {
+//     Mail.find().sort({ createdAt: -1 })
+//     .then((data) =>{
+//       res.status(200).json(data);
+//     })
+//     .catch((err) => {
+//       res.status(400).json({ error: err.message })
+//     })
+// };
+const mail_get_all = async (req, res) => {
+    try{
+      const mails = await Mail.find({});
+      res.status(200).json(mails);
+    }
+    catch(err){
       res.status(400).json({ error: err.message })
-    })
+    }
 };
 
 const mail_post = (req, res) => {

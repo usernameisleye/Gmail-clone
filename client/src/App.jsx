@@ -13,18 +13,22 @@ function App() {
         <Header />
         <div className="flex">
           <Menu />
+
           <Routes>
             {/* Route to show all mails */}
             <Route
              path="/"
              element={<Mails />}
             />
+
             {/* Route to show mail details */}
             <Route 
              path="/mail/:id"
              element={<MailDetails />}
             />
+
           </Routes>
+
           <Compose />
           <Panel />
         </div>

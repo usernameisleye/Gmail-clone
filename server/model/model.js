@@ -25,9 +25,7 @@ const mailSchema = new Schema({
     starred:{
         type: Boolean,
         required: false
-    },
+    }
 }, { timestamps: true });
 
-const Mail = mongoose.model("Mail", mailSchema);
-
-module.exports = Mail;
+module.exports = mongoose.model("Mail", mailSchema);

@@ -1,12 +1,28 @@
+import { useEffect, useState } from "react";
 import Mail from "./pages/Mail";
 import MailsHeader from "./utils/MailsHeader"
 
 const Mails = () => {
+    const [mails, setMails] = useState(null);
+
     const sections = [
         {id: 1, title: "Primary", className: "fa-solid fa-inbox", active: "text-Tab-Blue border-b-2 border-solid"},
         {id: 2, title: "Promotions", className: "fa-solid fa-tag"},
         {id: 3, title: "Socials", className: "fa-solid fa-user-group"}
     ];
+
+    useEffect(() =>{
+        const useFetch = async () => {
+            const res = await fetch("http://localhost:5050/api/mails");
+            const resData = await res.json();
+
+            if(res.ok){
+                setMails(resData);
+            }
+        }
+
+        useFetch();
+    }, []);
 
     return ( 
         <div className="bg-White w-[calc(67%+10rem)] mx-4 rounded-xl overflow-x-hidden">
@@ -26,6 +42,7 @@ const Mails = () => {
 
                 {/* Section for all Mails */}
                 <section className="grid grid-cols-1">
+                    {/* <Mail />
                     <Mail />
                     <Mail />
                     <Mail />
@@ -35,6 +52,15 @@ const Mails = () => {
                     <Mail />
                     <Mail />
                     <Mail />
+                    <Mail />
+                    <Mail />
+                    <Mail />
+                    <Mail />
+                    <Mail />
+                    <Mail /> */}
+                { mails && mails.map((mail) => (
+                    <Mail key={mail._id} mail={mail}/>
+                )) }
                 </section>
 
                 {/* Bottom Mail section */}
@@ -43,7 +69,11 @@ const Mails = () => {
                         <div className="relative bg-FA-Hover w-[calc(100%+5rem)] h-2 rounded-lg my-2">
                             <div className="absolute bg-FA-Dark h-2 w-1/12 rounded-lg"></div>
                         </div>
-                        <p>0.01 GB of 15 GB used</p>
+
+                        <div className="flex">
+                            <p>0.01 GB of 15 GB used</p>
+                            <img src="/assets/open_in_new.png" className="ml-2" alt=""></img>
+                        </div>
                     </div>
 
                     <div className="flex gap-2">

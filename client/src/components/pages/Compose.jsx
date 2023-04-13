@@ -2,15 +2,23 @@ import { useState } from "react";
 
 const Compose = () => {
     const [open, setOpen] = useState(false);
+    const [showSchedule, setShowSchedule] = useState(false);
     // Targetting compose btn and setting "setOpen" to true when clicked
     document.addEventListener("click", e =>{
         if(e.target.classList.contains("compose")){
             setOpen(true);
         }
+        if(e.target.tagName !== "IMG"){
+            setShowSchedule(false);
+        }
     });
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    };
+
     return ( 
-        <form className={`${ open ? "" : "hidden" } bg-White fixed right-20 bottom-0 flex flex-col w-[calc(25rem+5rem)] overflow-hidden rounded-md shadow-xl`}>
+        <form className={`${ open ? "" : "hidden" } bg-White fixed right-20 bottom-0 flex flex-col w-[calc(25rem+5rem)] overflow-hidden rounded-md shadow-xl`} onSubmit={handleSubmit}>
             {/* Header section of compose box */}
             <header className="flex justify-between bg-Bright-Blue p-2">
                 <span className="font-semibold">New Message</span>
@@ -45,9 +53,17 @@ const Compose = () => {
             <footer className="flex justify-between p-4">
                 <div className="flex">
 
-                    <div className="flex items-center mr-3">
+                    <div className="relative flex items-center mr-3">
                         <button className="bg-Dark-Blue text-White rounded-tl-3xl rounded-bl-3xl h-10 py-2 px-4 border-r border-solid border-Black">Send</button>
-                        <button className=""><i className="fa-solid fa-caret-down bg-Dark-Blue text-White rounded-tr-3xl rounded-br-3xl h-10 py-2 px-3 leading-normal"></i></button>
+
+                        <button className="group bg-Dark-Blue text-White rounded-tr-3xl rounded-br-3xl h-10 p-2 focus:brightness-125">
+                            <img src="/assets/arrow_drop_down_white.png" className="" onClick={(e) => {setShowSchedule(!showSchedule); e.target.classList.toggle("scale-y-[-1]")}}></img>
+                        </button>
+
+                        <div className={`${ showSchedule ? "" : "hidden" } absolute bottom-[100%] bg-White flex items-center gap-3 w-[10rem] p-2 shadow-[0_2px_4px_rgba(0,0,0,.2)] cursor-pointer`}>
+                            <img src="/assets/schedule_send.png" className="" alt="" />
+                            Schedule send
+                        </div>
                     </div>
 
                     <ul className="flex items-center gap-3">

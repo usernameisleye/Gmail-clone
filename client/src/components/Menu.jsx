@@ -45,8 +45,8 @@ const Menu = () => {
 
                 <div className="group flex items-center justify-between mt-4 py-1 pl-8 pr-4 cursor-pointer rounded-tr-full rounded-br-full hover:bg-FA-Hover">
                     <div className="flex items-center gap-2">
-                        <img src="/assets/label.png" className="" alt="" />
-                        <span>Backup</span>
+                        <img src="/assets/label.png" className="w-[1.2rem] object-cover" alt="" />
+                        <span className="text-sm">Backup</span>
                     </div>
 
                     <img src="/assets/more.png" className="invisible group-hover:visible" alt="" />

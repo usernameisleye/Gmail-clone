@@ -8,9 +8,9 @@ const Panel = () => {
                 <img src="/assets/contacts.png" className="" alt="Contacts image" />
             </div>
 
-            <div className="h-[calc(50%+1rem)] flex flex-col justify-between items-center py-4">
-                <i className="fa-sharp fa-solid fa-plus p-2 rounded-full hover:bg-FA-Hover"></i>
-                <i className="fa-solid fa-angle-right py-2 px-3 rounded-full hover:bg-FA-Hover"></i>
+            <div className="h-[calc(50%+3rem)] flex flex-col justify-between items-center py-4">
+                <img src="/assets/gm_add.png" alt="" className="" />
+                <img src="/assets/chevron_right.png" alt="" className="h-max hover:bg-FA-Hover" />
             </div>
         </aside>
      );
