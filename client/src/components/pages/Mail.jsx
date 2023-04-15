@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom";
-import formatDistanceToNow  from 'date-fns/formatDistanceToNow'
+import formatDistanceToNow  from 'date-fns/formatDistanceToNow';
 
 const Mail = ({ mail }) => {
-    console.log(mail);
-
     return ( 
-        <div className="group relative flex items-center gap-4 h-fit p-2 cursor-pointer border-b border-solid border-FA-Hover hover:shadow-md">
-            <div className="flex items-center gap-2 w-fit">
+        <div className="group relative grid grid-cols-12 gap-4 h-fit p-2 cursor-pointer border-b border-solid border-FA-Hover hover:shadow-md text-[14px]">
+            <div className=" col-span-2 flex items-center gap-2 w-fit">
                 {/* Mail heading and buttons */}
                 <div className="flex">
                     <i className="fa-solid fa-grip-vertical cursor-grab mr-1 text-FA-Dark invisible group-hover:visible"></i>
@@ -15,13 +13,13 @@ const Mail = ({ mail }) => {
 
                 <img src="/assets/star_baseline.png" alt="" className="" />
                 
-                <Link to="/mail/:id">
+                <Link to={`/mail/${ mail._id }`}>
                     <span className="font-medium">{ mail.sender }</span>
                 </Link>
             </div>
 
             {/* Mail heading and preview */}
-            <Link to="/mail/:id" className="w-3/5">
+            <Link to={`/mail/${ mail._id }`} className="w-3/5 col-span-9">
                 <div className="flex flex-col md:flex-row">
                     <span className="font-medium w-full">{ mail.subject }</span>
                     <span className="w-full h-fit overflow-hidden text-ellipsis whitespace-nowrap">{ mail.body }</span>
@@ -35,9 +33,10 @@ const Mail = ({ mail }) => {
                 <img src="/assets/mail.png" alt="" />
                 <img src="/assets/schedule.png" className="" alt="" />
             </div>
+
             {/* Date */}
             { mail.createdAt && 
-            <span className="font-bold ml-auto content-start">{ formatDistanceToNow(new Date(mail.createdAt), { addSuffix: true }) }</span>        
+            <span className="col-span-1 font-bold ml-auto content-start">{ formatDistanceToNow(new Date(mail.createdAt), { addSuffix: true }) }</span>        
             }
         </div>
      );

@@ -1,36 +1,24 @@
-import { useEffect, useState } from "react";
 import Mail from "./pages/Mail";
-import MailsHeader from "./utils/MailsHeader"
+import MailsHeader from "./utils/MailsHeader";
+import useFetch from "./useFetch";
 
 const Mails = () => {
-    const [mails, setMails] = useState(null);
-
     const sections = [
         {id: 1, title: "Primary", className: "fa-solid fa-inbox", active: "text-Tab-Blue border-b-2 border-solid"},
         {id: 2, title: "Promotions", className: "fa-solid fa-tag"},
         {id: 3, title: "Socials", className: "fa-solid fa-user-group"}
     ];
 
-    useEffect(() =>{
-        const useFetch = async () => {
-            const res = await fetch("http://localhost:5050/api/mails");
-            const resData = await res.json();
-
-            if(res.ok){
-                setMails(resData);
-            }
-        }
-
-        useFetch();
-    }, []);
+    // Fetching data, loading and error states from the "useFetch" hook
+    const { data: mails, loading, error } = useFetch("http://localhost:5050/api/mails");
 
     return ( 
-        <div className="bg-White w-[calc(67%+10rem)] mx-4 rounded-xl overflow-x-hidden">
+        <div className="bg-White w-[calc(67%+10rem)] h-max mx-4 rounded-xl overflow-x-hidden">
             {/* Heading on Mails section */}
             <MailsHeader />
 
             {/* Sub heading of Mails section */}
-            <section className="text-md h-[calc(24rem+5rem)] overflow-hidden overscroll-y-contain overflow-y-scroll">
+            <section className="text-md h-max overflow-hidden overscroll-y-contain overflow-y-scroll">
                 <div className="bg-White text-FA-Dark flex gap-2 text-md border-b border-solid border-FA-Hover">
                     { sections.map(section => (
                         <div key={section.id} className={`sub-heading flex items-center gap-2 py-3 px-4 w-[calc(20%+2rem)] cursor-pointer ${section.active ? section.active : ""} hover:bg-FA-Hover`}>
@@ -42,25 +30,21 @@ const Mails = () => {
 
                 {/* Section for all Mails */}
                 <section className="grid grid-cols-1">
-                    {/* <Mail />
-                    <Mail />
-                    <Mail />
-                    <Mail />
-                    <Mail />
-                    <Mail />
-                    <Mail />
-                    <Mail />
-                    <Mail />
-                    <Mail />
-                    <Mail />
-                    <Mail />
-                    <Mail />
-                    <Mail />
-                    <Mail />
-                    <Mail /> */}
+
+                {/* Loading state */}
+                { loading && <div className="absolute top-0 left-[50%] py-1 px-4 bg-Loading-Bg border-solid border border-Loading-Border font-bold">Loading..</div> }
+
+                {/* Error state */}
+                { error && <div className="flex text-lg font-bold py-4 px-8">
+                        { error } 
+                    </div> }
+
+                {/* Passing "mails" value into Mail Component */}
+
                 { mails && mails.map((mail) => (
                     <Mail key={mail._id} mail={mail}/>
                 )) }
+
                 </section>
 
                 {/* Bottom Mail section */}

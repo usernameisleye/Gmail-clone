@@ -15,11 +15,13 @@ module.exports = {
       "White": "rgb(255,255,255)",
       "Input-Bg": "rgb(234,241,251)",
       "Placeholder-Text": "rgb(103,103,104)",
+
       "Base-Text": "rgb(42,42,42)",
       "Tab-Blue": "rgb(11,87,208)",
       "Light-Blue": "rgb(194,231,255)",
       "Bright-Blue": "rgb(242,246,252)",
       "Active-Blue": "rgb(211,227,253)",
+
       "Dark-Blue": "rgb(11,87,208)",
       "Active-Text": "rgb(0,29,53)",
       "Black": "rgb(0,0,0)",
@@ -36,6 +38,9 @@ module.exports = {
 
       "FA-Dark": "rgb(95,99,104)",
       "FA-Hover": "rgb(235,236,236)",
+
+      "Loading-Bg": "rgb(249,237,190)",
+      "Loading-Border": "rgb(240,195,109)"
     }
   },
   plugins: []
