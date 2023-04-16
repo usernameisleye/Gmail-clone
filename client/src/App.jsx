@@ -9,7 +9,7 @@ import MailDetails from "./components/pages/MailDetails";
 function App() {
   return (
     <BrowserRouter>
-      <div className="App bg-Home-Bg h-screen font-Hanken-Grotesk">
+      <div className="App bg-Home-Bg min-h-screen font-Hanken-Grotesk">
         <Header />
         <div className="flex">
           <Menu />

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import MailExtras from "./MailExtras";
 
-const mailsHeader = () => {
+const mailsHeader = ({ checked, handleCheck }) => {
     // Show states for both dropdowns
     const [show, setShow] = useState(false);
         
@@ -13,10 +13,14 @@ const mailsHeader = () => {
     });
 
     return ( 
-        <div className="relative bg-White text-FA-Dark flex items-center justify-between gap-6 p-4">
+        <div className="relative text-FA-Dark flex items-center justify-between gap-6 p-4">
             <div className="flex items-center gap-6">
                 <div className="flex items-center ">
-                    <input type="checkbox" className="h-4 w-4 cursor-pointer outline-FA-Dark outline-[3px]" />
+                    <input 
+                     type="checkbox" 
+                     className="h-4 w-4 cursor-pointer outline-FA-Dark outline-[3px]"
+                    />
+
                     {/* Open and close "show" options */}
                     <img src="/assets/arrow_drop_down.png" alt="" className="show" onClick={() => {setShow(!show)}}/>
 

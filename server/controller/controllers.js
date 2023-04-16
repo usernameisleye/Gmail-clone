@@ -1,6 +1,7 @@
 const Mail = require("../model/model") //Importing the Mail model
 const mongoose = require("mongoose");
 const nodeMailer = require("nodemailer");
+require("dotenv").config();
 
 // Get all mails
 const mail_get_all = async (req, res) => {
@@ -67,8 +68,8 @@ const send_mail = async (req, res) =>{
   let transporter = nodeMailer.createTransport({ // create reusable transporter object using the default SMTP transport
       service: 'gmail',
       auth: {
-          user: 'adeleyeadesida@gmail.com',
-          pass: 'wuithnryiutadxjd'
+          user: process.env.MY_MAIL,
+          pass: process.env.MY_PASSWORD
       }
   });
 

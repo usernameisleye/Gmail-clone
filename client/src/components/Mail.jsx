@@ -1,23 +1,43 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import formatDistanceToNow  from 'date-fns/formatDistanceToNow';
 import HoverSection from "./utils/HoverSection";
+import formatDistanceToNow  from 'date-fns/formatDistanceToNow';
 
-const Mail = ({ mail }) => {
+const Mail = ({ mail, checked }) => {
+    // Starred message states and function
+    const [starred, setStarred] = useState(false)
+    const handleStar = () =>{
+        setStarred(!starred)   
+    }
+
+    const [isRead, setIsRead] = useState(false);
+    const handleRead = (e) => {
+        setIsRead(true);
+    }
+
     return ( 
-        <div className="group relative flex p-2 cursor-pointer border-b border-solid border-FA-Hover hover:shadow text-[14px]">
-            <div className="flex items-center gap-2 pr-2">
+        <div className={`group relative ${ isRead ? "bg-Read-Bg" : "bg-White" } flex p-2 cursor-pointer border-b border-solid border-FA-Hover hover:shadow text-[14px]`} onClick={handleRead}>
+
+            <div className="flex items-center gap-2 pr-4">
                 {/* Mail heading and buttons */}
-                <div className="flex">
-                    <i className="fa-solid fa-grip-vertical cursor-grab mr-1 text-FA-Dark invisible group-hover:visible"></i>
-                    <input type="checkbox" className="cursor-pointer" />
+                <div className="flex pr-2">
+                    <img src="/assets/drag_indicator.png" alt="" className="invisible group-hover:visible cursor-grab opacity-30" onClick={(e) => {e.target.classList.toggle("cursor-grabbing")}}/>
+                    <input 
+                     type="checkbox" 
+                     className="cursor-pointer" 
+                    />
                 </div>
 
-                <img src="/assets/star_baseline.png" alt="" className="" />
+                { starred ?
+                    <img src="/assets/star_fill.png" alt="" onClick={handleStar}/>
+                    :
+                    <img src="/assets/star_baseline.png" alt="" className="" onClick={handleStar}/>
+                }
             </div>
             
             <Link to={`/mail/${ mail._id }`} className="basis-[20%]">
                 <div className="flex items-center gap-2 w-fit">
-                        <span className="font-medium">{ mail.from }</span>
+                    <span className="font-medium">{ mail.from }</span>
                 </div>
             </Link>
 
@@ -26,7 +46,7 @@ const Mail = ({ mail }) => {
                 <div className="flex flex-[1_1_auto] h-auto min-w-0">
                     <div className="inline-flex items-baseline shrink whitespace-nowrap leading-[20px]">
                         <span className="overflow-hidden text-ellipsis whitespace-nowrap">
-                            <span className="font-[700] min-w-max">{ mail.subject }</span>
+                            <span className="font-medium min-w-max">{ mail.subject }</span>
                         </span>
                     </div>
 
