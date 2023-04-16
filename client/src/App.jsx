@@ -4,7 +4,7 @@ import Mails from "./components/Mails";
 import Menu from "./components/Menu";
 import Panel from "./components/Panel";
 import Compose from "./components/pages/Compose";
-import MailDetails from "./components/MailDetails"
+import MailDetails from "./components/pages/MailDetails";
 
 function App() {
   return (

@@ -1,6 +1,8 @@
 const Mail = require("../model/model") //Importing the Mail model
 const mongoose = require("mongoose");
+const nodeMailer = require("nodemailer");
 
+// Get all mails
 const mail_get_all = async (req, res) => {
     try{
       const mails = await Mail.find({});
@@ -11,72 +13,82 @@ const mail_get_all = async (req, res) => {
     }
 };
 
-const mail_post = (req, res) => {
-    const mail = new Mail(req.body);
-
-    mail.save()
-     .then((data) =>{
-        res.status(301).json(data);
-     })
-     .catch((err) => {
-      res.status(400).json({ error: err.message })
-    })
+// Create a new mail
+const mail_post = async (req, res) => {
+  const mail = new Mail(req.body);
+  try{
+    const data = await mail.save();
+    res.status(301).json(data);
+  }
+  catch(err){
+    res.status(400).json({ error: err.message });
+  }
 };
 
-const mail_get = (req, res) => {
-    const { id } = req.params;
+// Get a mail
+const mail_get = async (req, res) => {
+  const { id } = req.params;
 
-    Mail.findById(id)
-     .then((data) =>{
-      res.status(200).json(data);
-     })
-     .catch((err) => {
-      res.status(400).json({ error: err.message })
-    })
+  // Checking is id is valid using mongoose
+  if(!mongoose.Types.ObjectId.isValid(id)){
+    return res.status(400).json({ error: "No such mail" })
+  }
+
+  try{
+    const mail = await Mail.findById(id);
+    res.status(200).json(mail);
+  }
+  catch(err){
+    res.status(400).json({ error: err.message });
+  }
+}
+
+// Delete a mail
+const mail_delete = async (req, res) => {
+  const { id } = req.params;
+
+  // Checking is id is valid using mongoose
+  if(!mongoose.Types.ObjectId.isValid(id)){
+    return res.status(400).json({ error: "No such mail" })
+  }
+
+  try{
+    const mail = await Mail.findOneAndDelete({ _id: id });
+    res.status(200).json(mail);
+  }
+  catch(err){
+    res.status(400).json({ error: err.message });
+  }
 };
 
-const mail_delete = (req, res) => {
-    const { id } = req.params;
+// Send a mail
+const send_mail = async (req, res) =>{
+  const { recipient, sender, subject, body } = req.body;
+  let transporter = nodeMailer.createTransport({ // create reusable transporter object using the default SMTP transport
+      service: 'gmail',
+      auth: {
+          user: 'adeleyeadesida@gmail.com',
+          pass: 'wuithnryiutadxjd'
+      }
+  });
 
-    Mail.findByIdAndDelete(id)
-     .then(() => {
-        res.status(200).json({ redirect: "/" });
-     })
-     .catch((err) => {console.log(err);})
-};
+  const mailTemp = {
+      from: `${ sender }`,
+      to: `${ recipient }`,
+      subject: `${ subject }`,
+      text: `${ body }`,
 
-const mail_starred = (req, res) => {
-    Mail.find({ starred: true })
-    .then(() =>{
-       res.send("Starred");
-    })
-    .catch((err) => {
-      res.status(400).json({ error: err.message })
-    })
-};
+      // Will add attachment config later
+  }
 
-const mail_star = (req, res) => {
-    const { id } = req.params;
-
-    Mail.updateOne(id, { $set: { starred: true } })
-     .then(() => {
-        res.status(204).json({ isStarred: "starred" });
-     })
-     .catch((err) => {
-      res.status(400).json({ error: err.message })
-    })
-};
-
-const mail_unstar = (req, res) => {
-    const { id } = req.params;
-
-    Mail.updateOne(id, { $set: { starred: false } })
-     .then(() => {
-        res.status(204).json({ isStarred: "unstarred" });
-     })
-     .catch((err) => {
-      res.status(400).json({ error: err.message })
-    })
+  // send mail with defined transport object
+  transporter.sendMail(mailTemp, (err, info) =>{
+      if(err){
+          res.status(400).json({ error: err.message });
+      }else{
+          res.status(200).json({ msg: "Message Sent" });
+      }
+  });
 };
 
 module.exports = {
@@ -84,7 +96,5 @@ module.exports = {
     mail_post,
     mail_get,
     mail_delete,
-    mail_starred,
-    mail_star,
-    mail_unstar
+    send_mail
 }

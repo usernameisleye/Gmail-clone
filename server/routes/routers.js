@@ -1,26 +1,26 @@
 const express = require("express");
 const router = express.Router();
-const mailController = require("../controller/controllers")
+const {
+    mail_get_all,
+    mail_post,
+    mail_get,
+    mail_delete,
+    send_mail
+} = require("../controller/controllers")
 
 // Get all mails
-router.get("/", mailController.mail_get_all);
+router.get("/", mail_get_all);
 
 // Create a new mail
-router.post("/", mailController.mail_post);
-
-// Get all starred mail
-router.get("/starred", mailController.mail_starred);
+router.post("/", mail_post);
 
 // Get a mail
-router.get("/:id", mailController.mail_get);
+router.get("/:id", mail_get);
 
 // Delete a mail
-router.delete("/:id", mailController.mail_delete);
+router.delete("/:id", mail_delete);
 
-// Update "starred" mail to true
-router.put("/:id/star", mailController.mail_star)
-
-// Update "starred" mail to false
-router.put("/:id/unstar", mailController.mail_unstar)
+// Send a mail
+router.post("/send", send_mail);
 
 module.exports = router;

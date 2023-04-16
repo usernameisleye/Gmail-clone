@@ -1,4 +1,4 @@
-import Mail from "./pages/Mail";
+import Mail from "./Mail";
 import MailsHeader from "./utils/MailsHeader";
 import useFetch from "./useFetch";
 
@@ -19,7 +19,7 @@ const Mails = () => {
 
             {/* Sub heading of Mails section */}
             <section className="text-md h-max overflow-hidden overscroll-y-contain overflow-y-scroll">
-                <div className="bg-White text-FA-Dark flex gap-2 text-md border-b border-solid border-FA-Hover">
+                <div className="bg-White text-FA-Dark flex gap-2 text-sm border-b border-solid border-FA-Hover">
                     { sections.map(section => (
                         <div key={section.id} className={`sub-heading flex items-center gap-2 py-3 px-4 w-[calc(20%+2rem)] cursor-pointer ${section.active ? section.active : ""} hover:bg-FA-Hover`}>
                             <i className={`${section.className}`}></i>
@@ -50,8 +50,8 @@ const Mails = () => {
                 {/* Bottom Mail section */}
                 <div className="text-sm text-FA-Dark p-4 flex justify-between">
                     <div className="">
-                        <div className="relative bg-FA-Hover w-[calc(100%+5rem)] h-2 rounded-lg my-2">
-                            <div className="absolute bg-FA-Dark h-2 w-1/12 rounded-lg"></div>
+                        <div className="relative bg-FA-Hover w-[calc(100%+5rem)] h-[.4rem] rounded-lg my-2">
+                            <div className="absolute bg-FA-Dark h-[.4rem] w-1/12 rounded-lg"></div>
                         </div>
 
                         <div className="flex">

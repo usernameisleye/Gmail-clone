@@ -1,7 +1,11 @@
+import useFetch from "./useFetch";
+
 const Menu = () => {
+    const { data: mails } = useFetch("http://localhost:5050/api/mails");
+
     // Menu array containing title and FA classes
     const menu =[
-        [1, "Inbox", "inbox_fill", "bg-Active-Blue text-Active-Text font-bold", 3],
+        [1, "Inbox", "inbox_fill", "bg-Active-Blue text-Active-Text font-bold"],
         [2, "Starred", "star_baseline"],
         [3, "Snoozed", "schedule_baseline"],
         [4, "Sent", "send_baseline"],
@@ -9,19 +13,13 @@ const Menu = () => {
         [6, "More", "expand_more_baseline"],
     ];
 
-
     const changeActive = (e) => {
-        // e.addEventListener("click", () =>{
-        //     menu.forEach(i =>{
-        //         console.log(e.classList);
-        //     })
-        // })
-        console.log(e.classList);
     }
+
     return ( 
         <aside className="flex flex-col gap-2 text-Mail-White w-1/6 text-md">
             {/* Compose button */}
-            <button  className="compose text-Base-Text bg-Light-Blue text-md font-medium py-4 px-5 m-2 w-fit rounded-2xl cursor-pointer hover:shadow-xl transition">
+            <button  className="compose text-Base-Text bg-Light-Blue text-sm font-medium py-4 px-5 m-2 w-fit rounded-2xl cursor-pointer hover:shadow-xl transition">
                 <i className="fa-solid fa-pen mr-4"></i> Compose
             </button>
 

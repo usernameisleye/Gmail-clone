@@ -1,8 +1,21 @@
 import { useNavigate } from "react-router-dom";
 import MailExtras from "./MailExtras";
 
-const MailHeader = () => {
+const MailHeader = ({ mail }) => {
     const navigate = useNavigate();
+
+    // Delete Function
+    const handleDelete = async (id) =>{
+        const res = await fetch(`http://localhost:5050/api/mails/${mail._id}`, {
+            method: "DELETE"
+        });
+        const resData = await res.json();
+
+        if(res.ok){
+            navigate("/");
+            console.log("Deleted");
+        }
+    }
 
     return ( 
         <nav className="flex justify-between p-4">
@@ -15,7 +28,7 @@ const MailHeader = () => {
                     <div className="flex-items px-4 border-r border-solid border-FA-Hover">
                         <img src="/assets/archive.png" alt="" />
                         <img src="/assets/report.png" alt="" />
-                        <img src="/assets/delete.png" alt="" />
+                        <img src="/assets/delete.png" alt="" onClick={() => handleDelete(mail._id)}/>
                     </div>
                     <div className="flex-items px-4 border-r border-solid border-FA-Hover">
                         <img src="/assets/mail.png" alt="" />

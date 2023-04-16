@@ -2,17 +2,17 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const mailSchema = new Schema({
-    to:{
-        type: String,
-        required: true
-    },
-    from:{
+    recipient:{
         type: String,
         required: true
     },
     sender:{
         type: String,
         required: true
+    },
+    from:{
+        type: String,
+        required: false
     },
     subject:{
         type: String,
@@ -21,10 +21,6 @@ const mailSchema = new Schema({
     body:{
         type: String,
         required: true
-    },
-    starred:{
-        type: Boolean,
-        required: false
     }
 }, { timestamps: true });
 
