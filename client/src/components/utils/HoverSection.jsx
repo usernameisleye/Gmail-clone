@@ -11,7 +11,6 @@ const HoverSection = ({ mail, isRead }) => {
         const resData = await res.json()
 
         if(res.ok){
-            // setMails(mails.filter(mail => mail._id !== id ))
             location.reload();
             console.log("Deleted");
         }
