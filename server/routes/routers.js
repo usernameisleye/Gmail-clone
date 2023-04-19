@@ -5,8 +5,8 @@ const {
     mail_post,
     mail_get,
     mail_delete,
-    send_mail
-} = require("../controller/controllers")
+    send_mail,
+    } = require("../controller/controllers")
 
 // Get all mails
 router.get("/", mail_get_all);

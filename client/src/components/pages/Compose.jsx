@@ -4,19 +4,27 @@ import ComposeError from "../utils/ComposeError";
 const Compose = () => {
     // Mail values states
     const [recipient, setRecipient] = useState("");
+    const [from, setFrom] = useState("");
     const [sender, setSender] = useState("");
     const [subject, setSubject] = useState("");
     const [body, setBody] = useState("");
 
     const [error, setError] = useState(null);
+    const [disabled, setDisabled] = useState(false);
+    const [sending, setSending] = useState(false);
 
     const [open, setOpen] = useState(false);
     const [showSchedule, setShowSchedule] = useState(false);
     // Targetting compose btn and setting "setOpen" to true when clicked
     document.addEventListener("click", e =>{
-        if(e.target.classList.contains("compose")){
+        if(e.target.classList.contains("another")){
             setOpen(true);
+            setDisabled(false);
+        }else if(e.target.classList.contains("current")){
+            setOpen(true);
+            setDisabled(true);
         }
+
         if(e.target.tagName !== "IMG"){
             setShowSchedule(false);
         }
@@ -24,15 +32,16 @@ const Compose = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setSending(true);
 
-        const mail = { recipient, sender, subject, body }
+        const mail = { recipient, from , sender, subject, body }
         
         try{
-            const res = await fetch("http://localhost:5050/api/mails/send", {
+            const res = await fetch(disabled ? "http://localhost:5050/api/mails":"http://localhost:5050/api/mails/send", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(mail)
-            })
+            });
 
             const resData = await res.json();
 
@@ -43,10 +52,12 @@ const Compose = () => {
                 setSender("");
                 setSubject("");
                 setBody("");
+                setSending(false)
             }
         }
         catch(err){
             setError(err.message);
+            setSending(false);
         }
     };
 
@@ -63,25 +74,38 @@ const Compose = () => {
             </header>
 
             {/* Recipient */}
-            <div className="relative group">
-                <input 
-                 className="w-full outline-none group-focus-within:pl-6 py-2 mx-2 border-b border-solid border-b-FA-Hover focus:placeholder:text-White" 
-                 type="email" 
-                 placeholder="Recipient(s)" 
-                 value={recipient}
-                 onChange={e => setRecipient(e.target.value)}
-                 required
-                />
-                <span className="absolute top-[20%] invisible group-focus-within:visible left-2">To</span>
-                <span className="absolute top-[20%] invisible group-focus-within:visible right-2">Cc Bcc</span>
-            </div>
+            { disabled ?
+                <div className="">
+                    <input 
+                        className="w-full outline-none py-2 mx-2 border-b border-solid border-b-FA-Hover" 
+                        type="text" 
+                        placeholder="From(Your Name)" 
+                        value={from}
+                        onChange={e => setFrom(e.target.value)}
+                        required
+                    />
+                </div>
+                :
+                <div className="relative group">
+                    <input 
+                    className="w-full outline-none group-focus-within:pl-6 py-2 mx-2 border-b border-solid border-b-FA-Hover focus:placeholder:text-White" 
+                    type="email" 
+                    placeholder="Recipient(s)" 
+                    value={recipient}
+                    onChange={e => setRecipient(e.target.value)}
+                    required
+                    />
+                    <span className="absolute top-[20%] invisible group-focus-within:visible left-2">To</span>
+                    <span className="absolute top-[20%] invisible group-focus-within:visible right-2">Cc Bcc</span>
+                </div>
+             }
 
             {/* Sender */}
             <div className="">
                 <input 
                  className="w-full outline-none py-2 mx-2 border-b border-solid border-b-FA-Hover" 
                  type="email" 
-                 placeholder="Sender" 
+                 placeholder={ disabled ? "Sender(Your Email)" : "Sender" }
                  value={sender}
                  onChange={e => setSender(e.target.value)}
                  required
@@ -148,6 +172,8 @@ const Compose = () => {
                 </div>
             </footer>
             { error && <ComposeError error={error} setError={setError}/> }
+            {/* Sending state */}
+            { sending && <div className="fixed top-0 left-[50%] py-1 px-4 bg-Loading-Bg border-solid border border-Loading-Border font-bold">Sending...</div> }
         </form>
      );
 }

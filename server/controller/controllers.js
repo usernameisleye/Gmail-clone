@@ -32,7 +32,7 @@ const mail_get = async (req, res) => {
 
   // Checking is id is valid using mongoose
   if(!mongoose.Types.ObjectId.isValid(id)){
-    return res.status(400).json({ error: "No such mail" })
+    return res.status(400).json({ redirect: "/" });
   }
 
   try{
@@ -97,5 +97,5 @@ module.exports = {
     mail_post,
     mail_get,
     mail_delete,
-    send_mail
+    send_mail,
 }

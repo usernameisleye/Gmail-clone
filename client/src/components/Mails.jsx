@@ -2,6 +2,7 @@ import Mail from "./Mail";
 import MailsHeader from "./utils/MailsHeader";
 import useFetch from "./useFetch";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Mails = () => {
     const sections = [
@@ -39,19 +40,19 @@ const Mails = () => {
                 {/* Section for all Mails */}
                 <section className="grid grid-cols-1">
 
-                {/* Loading state */}
-                { loading && <div className="absolute top-0 left-[50%] py-1 px-4 bg-Loading-Bg border-solid border border-Loading-Border font-bold">Loading..</div> }
+                    {/* Loading state */}
+                    { loading && <div className="absolute top-0 left-[50%] py-1 px-4 bg-Loading-Bg border-solid border border-Loading-Border font-bold">Loading...</div> }
 
-                {/* Error state */}
-                { error && <div className="flex text-lg font-bold py-4 px-8">
-                        { error } 
-                    </div> }
+                    {/* Error state */}
+                    { error && <div className="flex text-lg font-bold py-4 px-8">
+                            { error } 
+                        </div> }
 
-                {/* Passing "mails" value into Mail Component */}
+                    {/* Passing "mails" value into Mail Component */}
 
-                { mails && mails.map((mail) => (
-                    <Mail key={mail._id} mail={mail} checked={checked}/>
-                )) }
+                    { mails && mails.map((mail) => (
+                        <Mail key={mail._id} mail={mail} checked={checked}/>
+                    )) }
 
                 </section>
 
@@ -69,9 +70,9 @@ const Mails = () => {
                     </div>
 
                     <div className="flex gap-2">
-                        <a href="" className="hover:underline">Terms</a>
-                        <a href="" className="hover:underline">Privacy</a>
-                        <a href="" className="hover:underline">Program Policies</a>
+                        <Link to="/" className="hover:underline">Terms</Link>
+                        <Link to="/" className="hover:underline">Privacy</Link>
+                        <Link to="/" className="hover:underline">Program Policies</Link>
                     </div>
 
                     <div className="">

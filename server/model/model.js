@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const mailSchema = new Schema({
     recipient:{
         type: String,
-        required: true
+        required: false
     },
     sender:{
         type: String,

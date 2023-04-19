@@ -1,18 +1,20 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import HoverSection from "./utils/HoverSection";
 import formatDistanceToNow  from 'date-fns/formatDistanceToNow';
+import { useReadContext } from "../hooks/useReadContext";
 
 const Mail = ({ mail, checked }) => {
     // Starred message states and function
     const [starred, setStarred] = useState(false)
     const handleStar = () =>{
         setStarred(!starred)   
-    }
+    };
+
 
     const [isRead, setIsRead] = useState(false);
+
     const handleRead = (e) => {
-        setIsRead(true);
     }
 
     return ( 
@@ -58,7 +60,7 @@ const Mail = ({ mail, checked }) => {
             </Link>
 
             {/* Extra content on hover */}
-            <HoverSection mail={mail}/>
+            <HoverSection mail={mail} isRead={isRead}/>
 
             {/* Date */}
             <div className="flex flex-[0_0_auto] items-center justify-end basis-[15%] leading-normal order-1">

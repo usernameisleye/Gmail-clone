@@ -26,7 +26,7 @@ const MailHeader = ({ mail }) => {
 
                 <div className="grid grid-cols-3">
                     <div className="flex-items px-4 border-r border-solid border-FA-Hover">
-                        <img src="/assets/archive.png" alt="" />
+                        <img src="/assets/archive.png" alt=""/>
                         <img src="/assets/report.png" alt="" />
                         <img src="/assets/delete.png" alt="" onClick={() => handleDelete(mail._id)}/>
                     </div>

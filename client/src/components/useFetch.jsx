@@ -10,7 +10,7 @@ const useFetch = (url) => {
          .then((res) => {
             // If server response is failed throwing an error message
             if(!res.ok){
-                throw Error("Server error, Please try again later!");
+                throw Error("There's been an error, Please try again later!");
             }
 
             return res.json();

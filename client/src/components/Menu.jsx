@@ -1,7 +1,16 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import useFetch from "./useFetch";
 
 const Menu = () => {
     const { data: mails } = useFetch("http://localhost:5050/api/mails");
+    const [show, setShow] = useState(false);
+
+    document.addEventListener("click", e =>{
+        if(e.target.tagName !== "BUTTON"){
+            setShow(false);
+        }
+    });
 
     // Menu array containing title and FA classes
     const menu =[
@@ -13,15 +22,19 @@ const Menu = () => {
         [6, "More", "expand_more_baseline"],
     ];
 
-    const changeActive = (e) => {
-    }
-
     return ( 
         <aside className="flex flex-col gap-2 text-Mail-White w-1/6 text-md">
             {/* Compose button */}
-            <button  className="compose text-Base-Text bg-Light-Blue text-sm font-medium py-4 px-5 m-2 w-fit rounded-2xl cursor-pointer hover:shadow-xl transition">
-                <i className="fa-solid fa-pen mr-4"></i> Compose
-            </button>
+            <div className="relative">
+                <button  className="compose text-Base-Text bg-Light-Blue text-sm font-medium py-4 px-5 m-2 w-fit rounded-2xl cursor-pointer hover:shadow-xl transition" onClick={() => {setShow(!show)}}>
+                    <i className="fa-solid fa-pen mr-4"></i> Compose
+                </button>
+
+                <div className={`absolute top-[80%] left-2 bg-White w-max py-3 text-center z-10 shadow-xl text-sm ${show ? "" : "hidden"}`}>
+                    <p className="current px-2 hover:bg-FA-Hover cursor-pointer">Send to this mail</p>
+                    <p className="another px-2 hover:bg-FA-Hover cursor-pointer">Send to another mail</p>
+                </div>
+            </div>
 
             {/* Rendering menu section from "menu" array */}
             <div className="flex flex-col gap-1">

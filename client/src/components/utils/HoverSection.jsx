@@ -1,6 +1,6 @@
 import useFetch from "../useFetch";
 
-const HoverSection = ({ mail }) => {
+const HoverSection = ({ mail, isRead }) => {
     const { data: mails, setData: setMails } = useFetch(`http://localhost:5050/api/mails`);
 
     // Delete Function
@@ -24,7 +24,7 @@ const HoverSection = ({ mail }) => {
     }
 
     return ( 
-        <div className="text-FA-Dark absolute top-0 bottom-0 right-0 flex justify-evenly items-center w-1/5 invisible group-hover:visible">
+        <div className={`${ isRead ? "bg-Read-Bg" : "bg-White" } text-FA-Dark absolute top-0 bottom-0 right-0 flex justify-evenly items-center w-1/5 invisible group-hover:visible`}>
             <img src="/assets/archive.png" alt="" className="" onClick={handleArchive}/>
             <img src="/assets/delete.png" alt="" className="" onClick={() => handleDelete(mail._id)}/>
             <img src="/assets/mail.png" alt="" />
