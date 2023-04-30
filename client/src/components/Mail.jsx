@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import HoverSection from "./utils/HoverSection";
 import formatDistanceToNow  from 'date-fns/formatDistanceToNow';
-import { useReadContext } from "../hooks/useReadContext";
 
 const Mail = ({ mail, checked }) => {
     // Starred message states and function
